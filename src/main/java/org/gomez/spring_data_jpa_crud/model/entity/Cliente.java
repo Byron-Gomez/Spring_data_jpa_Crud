@@ -14,25 +14,33 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private static final long serialVersionUID =1L;
+
+    // Atributo para la ruta de la foto del cliente en el sistema de archivos
     private String foto;
+
+    // Atributos obligatorios para el cliente: nombre, apellido y correo electrónico
     @NotEmpty
     private String nombre;
+
     @NotEmpty
     private String apellido;
+
     @Email
     @NotEmpty
     private String email;
 
+    // Atributo para la fecha de creación del cliente
     @NotNull
     @Column(name = "create_at")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createAt;
 
+    // Constructor vacío necesario para JPA
     public Cliente() {
     }
 
+    // Constructor con parámetros para facilitar la creación de instancias
     public Cliente(Long id, String foto, String nombre, String apellido, String email, @NotNull Date createAt) {
         this.id = id;
         this.foto = foto;
@@ -41,6 +49,8 @@ public class Cliente {
         this.email = email;
         this.createAt = createAt;
     }
+
+    // Métodos getters y setters para acceder y modificar los atributos
 
     public Long getId() {
         return id;

@@ -6,11 +6,21 @@ import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
+// Interfaz que define operaciones de servicio para la entidad Cliente
 public interface IClienteService {
-    List<Cliente> findAll();
-    Page<Cliente> findAll(Pageable pageable);
-    void save(Cliente cliente);
-    Cliente findOne(Long id);
-    void delete(Long id);
 
+    // Obtiene todos los clientes
+    List<Cliente> findAll();
+
+    // Obtiene todos los clientes paginados
+    Page<Cliente> findAll(Pageable pageable);
+
+    // Guarda un nuevo cliente o actualiza uno existente
+    void save(Cliente cliente);
+
+    // Obtiene un cliente por su ID
+    Cliente findOne(Long id);
+
+    // Elimina un cliente por su ID
+    void delete(Long id);
 }
